@@ -1,1 +1,22 @@
-runs-on: self-hosted
+name: Self-Hosted Runner Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  self_hosted_runner_job:
+    runs-on: self-hosted
+    steps:
+      - name: Check out code at specific commit
+        uses: actions/checkout@v2
+        with:
+          ref: 65522f9 # Specify the commit hash you want to use
+
+      # Add your workflow steps here
+      - name: Run Custom Step 1
+        run: echo "Executing Step 1"
+
+      - name: Run Custom Step 2
+        run: echo "Executing Step 2"
